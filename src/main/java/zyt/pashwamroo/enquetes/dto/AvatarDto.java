@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 
 public class AvatarDto {
 
+    public AvatarDto(Long id, String urlImage) {
+        this.id = id;
+        this.urlImage = urlImage;
+    }
+
     private Long id;
     private String urlImage;
-
-    @OneToOne
-    private Utilisateur utilisateur;
 
     public String getUrlImage() {
         return urlImage;

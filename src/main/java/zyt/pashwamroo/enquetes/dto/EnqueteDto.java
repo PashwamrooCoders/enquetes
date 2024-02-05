@@ -8,14 +8,19 @@ import java.util.List;
 
 public abstract class EnqueteDto {
 
-    private final int  PRIX_MIN = 1000;
-    private final int PRIX_MAX = 25000;
     private Calendar calendar;
-
     private Long id;
     private String nom;
     private Date dateLancement;
     private float prix;
+
+    public EnqueteDto(Calendar calendar, Long id, String nom, Date dateLancement, float prix) {
+        this.calendar = calendar;
+        this.id = id;
+        this.nom = nom;
+        this.dateLancement = dateLancement;
+        this.prix = prix;
+    }
 
     public Long getId() {
         return id;
@@ -56,5 +61,6 @@ public abstract class EnqueteDto {
     public void setCalendar(Calendar calendar) {
         this.calendar = calendar;
     }
+
 
 }

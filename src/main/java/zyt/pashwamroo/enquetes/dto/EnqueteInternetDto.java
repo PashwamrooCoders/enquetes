@@ -1,4 +1,11 @@
 package zyt.pashwamroo.enquetes.dto;
 
-public class EnqueteInternetDto {
+import java.util.Calendar;
+import java.util.Date;
+
+public class EnqueteInternetDto extends EnqueteDto{
+    public EnqueteInternetDto(Calendar calendar, Long id, String nom, Date dateLancement, float prix) {
+        super(calendar, id, nom, dateLancement, prix);
+    }
+
 }

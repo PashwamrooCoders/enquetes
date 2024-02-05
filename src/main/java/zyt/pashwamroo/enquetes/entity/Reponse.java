@@ -23,4 +23,20 @@ public class Reponse {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Date getDateReponse() {
+        return dateReponse;
+    }
+
+    public void setDateReponse(Date dateReponse) {
+        this.dateReponse = dateReponse;
+    }
+
+    public ChoixPossible getChoixPossible() {
+        return choixPossible;
+    }
+
+    public void setChoixPossible(ChoixPossible choixPossible) {
+        this.choixPossible = choixPossible;
+    }
 }

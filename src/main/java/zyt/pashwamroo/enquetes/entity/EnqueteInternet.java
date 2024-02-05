@@ -13,4 +13,12 @@ public class EnqueteInternet extends Enquete{
 
     @ManyToMany
     Set<SitePartenaire> sitePartenaires;
+
+    public Set<SitePartenaire> getSitePartenaires() {
+        return sitePartenaires;
+    }
+
+    public void setSitePartenaires(Set<SitePartenaire> sitePartenaires) {
+        this.sitePartenaires = sitePartenaires;
+    }
 }
