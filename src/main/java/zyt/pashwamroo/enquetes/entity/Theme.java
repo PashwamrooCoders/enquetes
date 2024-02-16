@@ -9,11 +9,11 @@ import java.util.List;
 public class Theme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "idTheme", nullable = false)
     private Long id;
     private String nom;
 
-    @OneToMany(mappedBy="theme", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="theme", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Enquete> enquetes;
 
     public Long getId() {

@@ -1,18 +1,17 @@
 package zyt.pashwamroo.enquetes.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "enqueteInternet")
+@DiscriminatorValue(value = "INTERNET")
 public class EnqueteInternet extends Enquete{
 
-
-    @ManyToMany
-    Set<SitePartenaire> sitePartenaires;
+    @ManyToMany(mappedBy = "enquetes")
+    private Set<SitePartenaire> sitePartenaires = new HashSet<>();
 
     public Set<SitePartenaire> getSitePartenaires() {
         return sitePartenaires;

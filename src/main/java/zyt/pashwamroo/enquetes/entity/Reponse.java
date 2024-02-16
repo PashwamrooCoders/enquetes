@@ -8,13 +8,15 @@ import java.util.Date;
 @Table(name = "reponse")
 public class Reponse {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "idReponse", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date dateReponse;
 
     @ManyToOne
     private ChoixPossible choixPossible;
+    @OneToOne
+    private Utilisateur utilisateur;
 
     public Long getId() {
         return id;

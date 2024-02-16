@@ -7,13 +7,18 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "enquete")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeEnquete", discriminatorType = DiscriminatorType.STRING)
 public abstract class Enquete {
 
+    @Transient
     private final int  PRIX_MIN = 1000;
-    private final int PRIX_MAX = 25000;
+    @Transient
+    private final int  PRIX_MAX = 25000;
     private Calendar calendar;
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "idEnquete", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true, nullable = false, length = 150)
@@ -22,6 +27,8 @@ public abstract class Enquete {
     private float prix;
     @ManyToOne
     private Theme theme;
+    @ManyToOne
+    private Utilisateur utilisateur;
     @OneToMany(mappedBy = "enquete", fetch = FetchType.EAGER)
     private List<Question> questions;
 
@@ -80,4 +87,6 @@ public abstract class Enquete {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+
 }

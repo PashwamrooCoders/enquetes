@@ -2,17 +2,22 @@ package zyt.pashwamroo.enquetes.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "question")
 public class Question {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "idQuestion", nullable = false)
     private Long id;
     private String libelle;
 
     @ManyToOne
-    @JoinColumn(name = "enquete_id")
+    @JoinColumn(name = "idEnquete")
     private Enquete enquete;
+
+    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+    private List<ChoixPossible> choixPossible;
 
     public Enquete getEnquete() {
         return enquete;
@@ -36,5 +41,13 @@ public class Question {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+
+    public List<ChoixPossible> getChoixPossible() {
+        return choixPossible;
+    }
+
+    public void setChoixPossible(List<ChoixPossible> choixPossible) {
+        this.choixPossible = choixPossible;
     }
 }

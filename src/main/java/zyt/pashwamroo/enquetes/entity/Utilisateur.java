@@ -10,14 +10,14 @@ import java.util.List;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "idUtilisateur", nullable = false)
     private Long id;
     private String login;
     private Date dateNaissance;
     private String email;
     private String motDePasse;
 
-    @OneToMany
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Enquete> enquetes;
     @OneToOne
     private Avatar avatar;

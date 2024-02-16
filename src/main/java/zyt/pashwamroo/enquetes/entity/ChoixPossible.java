@@ -9,11 +9,12 @@ import java.util.List;
 public class ChoixPossible {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "idChoixPossible", nullable = false)
     private Long id;
     private String libelle;
 
     @ManyToOne
+    @JoinColumn(name = "idQuestion")
     private Question question;
     @OneToMany(mappedBy = "choixPossible", fetch = FetchType.EAGER)
     private List<Reponse> reponses;
@@ -34,4 +35,22 @@ public class ChoixPossible {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public List<Reponse> getReponses() {
+        return reponses;
+    }
+
+    public void setReponses(List<Reponse> reponses) {
+        this.reponses = reponses;
+    }
+
+
 }

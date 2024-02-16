@@ -1,12 +1,10 @@
 package zyt.pashwamroo.enquetes.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "enqueteTelephonique")
+@DiscriminatorValue(value = "TLPHONE")
 public class EnqueteTelephonique extends Enquete{
 
     @Column(name = "script_D_Accroche",nullable = false)

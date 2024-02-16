@@ -29,4 +29,12 @@ public class Avatar {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 }
